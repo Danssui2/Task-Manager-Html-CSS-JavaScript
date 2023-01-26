@@ -29,6 +29,7 @@ function generateMarkup() {
 
 function init() {
   generateMarkup();
+  model.setTaskContHeight();
 }
 
 init();

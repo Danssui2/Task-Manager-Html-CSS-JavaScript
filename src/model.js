@@ -318,3 +318,9 @@ export function getData() {
   statsData = stats ? stats : statsData;
   theme = themeMode ? themeMode : {};
 }
+
+export function setTaskContHeight() {
+  const taskContainer = document.querySelector('.task-container-parent');
+  
+  taskContainer.style.height = `${window.innerHeight / 1.5}px`
+}
