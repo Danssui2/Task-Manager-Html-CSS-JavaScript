@@ -1,0 +1,35 @@
+{
+  "name": "task-manager",
+  "version": "1.0.0",
+  "description": "![Thumbnail](Img/cover.png) This is a fully functional web based task manager app.",
+  "main": "index.js",
+  "scripts": {
+    "watch:sass": "sass sass/main.scss css/style.min.css -w",
+    "devserver": "live-server",
+    "start": "npm-run-all --parallel devserver watch:sass",
+    "compile:parcel": "parcel index.html download.html",
+    "compile:sass": "sass sass/main.scss css/style.comp.css",
+    "prefix:css": "postcss --use autoprefixer -b 'last 10 versions' css/style.comp.css -o css/style.prefix.css",
+    "compress:css": "sass css/style.prefix.css css/style.min.css --style compressed",
+    "build:css": "npm-run-all compile:sass prefix:css compress:css"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Suhail-007/Task-Manager.git"
+  },
+  "keywords": [],
+  "author": "Suhail",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Suhail-007/Task-Manager/issues"
+  },
+  "devDependencies": {
+    "autoprefixer": "^10.4.13",
+    "concat": "^1.0.3",
+    "npm-run-all": "^4.1.5",
+    "parcel-bundler": "^1.8.1",
+    "postcss-cli": "^10.0.0",
+    "sass": "^1.56.1"
+  },
+  "homepage": "https://github.com/Suhail-007/Task-Manager#readme"
+}
