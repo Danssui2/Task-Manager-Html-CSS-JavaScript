@@ -1,5 +1,5 @@
 # Task Manager HTML CSS JavaScript
-![Thumbnail](Img/cover.png)
+![Thumbnail](img/cover.png)
 This is a fully functional web based task manager app.
 #### Warning!!
 >Not recommended using other browser. Use chrome instead.
@@ -29,7 +29,7 @@ add transition on add-task container<br>
 fixed the create task button slightly overlapping the timers.<br>
 Change the architecture similiar to MVC <br>
 removed background images from nav and added svgs<br>
-removed position absolute from lower-box .lb-head.<br>
+removed position absolute from lower-box .categories-heading.<br>
 remove flex with grid and also height auto from some properties<br>
 added transition on task-view.<br>
 removed flex box from lower-input div<br>

@@ -17,7 +17,9 @@ export function openTaskView(title, desc, timeStart, timeEnd, category, uniqueid
   const html = `
     <h2>${title}</h2>
       <div class='img_cont'>
-        <img src="Img/${category}.png" />
+        <svg>
+          <use xlink:href='./img/icons.svg#icon-${category}'></use>
+        </svg>
       </div>
       <div class="desc_container">
         <p>Task Description</p>

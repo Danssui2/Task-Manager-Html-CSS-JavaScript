@@ -4,8 +4,8 @@ let statsHolder;
 
 export function renderStatsHTML() {
   let html = `
-    <h2 class="headertop">Statistics
-      <span class="headerbottom">All</span>
+    <h2 class="stats-heading">Statistics
+      <span>All</span>
     </h2>
     <div class="stats-holder">
     </div>`
@@ -46,15 +46,45 @@ export function generateStats() {
     </div>
   </div>
   <div class="lower-box">
-    <h2 class="lb-head">Category</h2>
+    <h2 class="categories-heading">Category</h2>
 
-    <div class="catbox-holder">
-      <span>${statsData.unset}</span>
-      <span>${statsData.work}</span>
-      <span>${statsData.education}</span>
-      <span>${statsData.sport}</span>
-      <span>${statsData.social}</span>
-      <span>${statsData.entertainment}</span>
+    <div class="categories-cont">
+      <span>
+        <svg>
+          <use xlink:href='./img/icons.svg#icon-unset'></use>
+        </svg>
+        ${statsData.unset}
+      </span>
+      <span>
+        <svg>
+          <use xlink:href='./img/icons.svg#icon-work'></use>
+        </svg>
+        ${statsData.work}
+      </span>
+      <span>
+        <svg>
+          <use xlink:href='./img/icons.svg#icon-education'></use>
+        </svg>        
+        ${statsData.education}
+      </span>
+      <span>
+        <svg>
+          <use xlink:href='./img/icons.svg#icon-sport'></use>
+        </svg>      
+        ${statsData.sport}
+      </span>
+      <span>
+        <svg>
+          <use xlink:href='./img/icons.svg#icon-social'></use>
+        </svg>      
+        ${statsData.social}
+      </span>
+      <span>
+        <svg>
+          <use xlink:href='./img/icons.svg#icon-entertainment'></use>
+        </svg>      
+        ${statsData.entertainment}
+        </span>
     </div>
   </div>`
 

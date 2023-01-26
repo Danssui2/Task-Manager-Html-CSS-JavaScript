@@ -1,7 +1,7 @@
 :root {
-  --body-bg: url('../../Img/bg.png');
+  --body-bg: url('../../img/bg.png');
   --theme-font: #9B15FF;
-  --settings-svg: #000;
+  --settings-svg:  #9B15FF;
   --font-color-primary: #000;
   --font-color-secondary: #777;
   --font-color-tertiary: #999;
@@ -48,7 +48,8 @@
 }
 
 .dark {
-  --body-bg: linear-gradient(120deg, rgba(0, 0, 0, 1) 0%, rgba(0, 0, 0, 1) 100%);;
+  --body-bg: linear-gradient(120deg, rgba(0, 0, 0, 1) 0%, rgba(0, 0, 0, 1) 100%);
+  ;
   --theme-font: #fff;
   --settings-svg: #fff;
   --font-color-primary: rgba(255, 255, 255, 1);
@@ -57,7 +58,7 @@
   --bg-primary: #303030;
   --bg-secondary: #CFCFCF;
   --bg-linear_radial: rgba(0, 0, 0, 1);
-  --shadow-primary:255, 255, 255;
+  --shadow-primary: 255, 255, 255;
   --date-btn-active-bg: #000;
   --dateBtn-shadow: 255, 255, 255;
   --date-btn-active-font: #fff;

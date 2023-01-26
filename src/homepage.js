@@ -103,8 +103,8 @@ function addNewTaskPopUp() {
 }
 
 function toggleSettings(e) {
-  const isSettingsBtn = e.target.parentElement.classList.contains('icon');
-
+  const isSettingsBtn = e.target.closest('.icon');
+  
   if (!isSettingsBtn && e.target.closest('.settings_menu') != null) return
 
   if (isSettingsBtn) settingsMenu.classList.toggle('active');

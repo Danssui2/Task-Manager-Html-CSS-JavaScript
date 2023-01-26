@@ -68,7 +68,7 @@ export function messagePopUp(message, className, time = 1000) {
 export function changeMonth(e) {
   const btn = e.target.closest('button');
   const btnDataset = btn?.dataset.btn;
-
+  const dateBtn = homepage.dateContainer.querySelector("button");
   if (btnDataset === 'next') {
     btn.classList.add('active');
     if (currMonth < 11) currMonth++;
@@ -167,10 +167,10 @@ export function currDayActive(elem) {
   elem.classList.add("active");
 }
 
-export function scrollToSection(val) {
-  if (val === 'home') document.getElementById('schedule').scrollIntoView({ behavior: "smooth" });
+export function scrollToSection(goTo) {
+  if (goTo === 'home') return document.getElementById('schedule').scrollIntoView({ behavior: "smooth" });
 
-  if (val === 'stats') document.getElementById('stats').scrollIntoView({ behavior: "smooth" });
+  if (goTo === 'stats') return document.getElementById('stats').scrollIntoView({ behavior: "smooth" });
 }
 
 
@@ -260,10 +260,11 @@ function createTaskCard(content) {
   const completedTaskCont = document.querySelector(".task-container-completed");
 
   //check if title is empty or timestart > timeend or timestart === timeend
-
   const html = `
     <div data-id='${content.uid}' class="task-card">
-      <img src="Img/${content.category}.png" />
+      <svg>
+        <use xlink:href='./img/icons.svg#icon-${content.category}'></use>
+      </svg>
       <div class="task-content">
         <h2>${content.title}</h2>
         <p>${content.desc} </p>
@@ -292,7 +293,7 @@ export function addHandlerTasks(handler) {
   const contentArr = todayDate?.content;
 
   tasksContainerParent.addEventListener('click', e => {
-    
+
     const id = e.target.closest('.task-card')?.dataset.id;
 
     contentArr?.forEach(content => {
