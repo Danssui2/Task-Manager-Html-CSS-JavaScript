@@ -321,6 +321,7 @@ body {
   flex-direction: column;
   justify-items: space-between;
   align-items: center;
+  padding-bottom: 8rem;
 }
 
 #complete {
