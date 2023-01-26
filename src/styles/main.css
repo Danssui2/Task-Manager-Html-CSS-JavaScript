@@ -24,6 +24,7 @@ body {
   background-size: cover;
   background-repeat: no-repeat;
   position: relative;
+  font-size: inherit;
 }
 
 /* Setting gear */
@@ -299,6 +300,7 @@ body {
   overflow-y: scroll;
   backdrop-filter: blur(10px);
   background: var(--transparency);
+  padding-bottom: 8rem;
 }
 
 .task-container {
@@ -308,7 +310,7 @@ body {
   justify-content: start;
   align-items: center;
   flex-direction: column;
-  margin-bottom: 8rem;
+  margin-bottom: 1rem;
 }
 
 .task-container-completed {
@@ -319,10 +321,6 @@ body {
   flex-direction: column;
   justify-items: space-between;
   align-items: center;
-}
-
-.task-container-completed:last-child {
-  margin-bottom: 8rem;
 }
 
 #complete {
@@ -995,9 +993,16 @@ body {
     /* 1REM === 7px */
     font-size: 43%;
   }
+}
+@media screen and (min-width: 43.75em) {
 
-  .lower-box {
-    /* margin-top: 9rem; */
+  html {
+    /* 1REM === 11px */
+    font-size: 70%;
+  }
+  
+  .task-container-parent {
+    padding-bottom: 25rem;
   }
 }
 
