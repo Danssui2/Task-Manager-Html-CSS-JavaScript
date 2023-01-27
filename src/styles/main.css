@@ -766,6 +766,7 @@ body {
   font-size: 1rem;
   padding: .4rem;
   appearance: none;
+  color: var(--font-color-primary);
 }
 
 .time-input-cont>div>label {
@@ -1039,7 +1040,7 @@ body {
     width: 50%;
     left: 25%;
   }
-  
+
   .create-task h2 {
     margin-bottom: 1rem;
   }

@@ -12,13 +12,14 @@ let timeStartInput;
 let timeEndInput;
 let timeStartElem;
 let timeEndElem;
+let formElem;
 
 export function generateAddTaskHTML() {
   const html = `
     <button id="closeTaskBtn">&times</button>
     <h2> Create Task </h2>
     
-    <form class='task-form'>
+    <form data-form class='task-form'>
     
       <div class='form-input'>
         <label for='taskname'>Task Name</label>
@@ -37,7 +38,7 @@ export function generateAddTaskHTML() {
             </svg>
             <b>Category : </b>
           </button>
-          <span>Unset</span>
+          <span data-category-span>Unset</span>
           
           <div class="category_Menu">
             <button type='button'>unset</button>
@@ -58,7 +59,7 @@ export function generateAddTaskHTML() {
             <label for='timestart'>
               Start
             </label>
-            <input type="time" id="timestart" value="12:00" />
+            <input type="time" id="timestart" value="12:00" name="timestart" />
           </div>
         </div>
         
@@ -71,7 +72,7 @@ export function generateAddTaskHTML() {
             <label for='timeend'>
               End
             </label>
-            <input type="time" id="timeend" value="13:00" />
+            <input type="time" id="timeend" value="13:00" name="timeend" />
           </div>
         </div>
       </div>
@@ -81,12 +82,13 @@ export function generateAddTaskHTML() {
 
   addTaskParentElem.insertAdjacentHTML('beforeend', html);
   categoryBtn = document.querySelector(`[data-btn="category"]`);
-  category = categoryBtn.querySelector('span');
+  category = document.querySelector('[data-category-span]');
   title = document.getElementById('taskname');
   desc = document.getElementById('taskdesc');
   timeStartInput = document.getElementById('timestart');
   timeEndInput = document.getElementById('timeend');
-  categoryMenu = document.querySelector('.category_Menu')
+  categoryMenu = document.querySelector('.category_Menu');
+  formElem = document.querySelector('[data-form]');
   init();
 }
 
@@ -130,19 +132,15 @@ function createTask() {
 }
 
 function closeNewtaskPopup() {
-  toggleTaskForm();
   resetAddTaskForm();
+  toggleTaskForm();
 }
 
 function resetAddTaskForm() {
-  title.value = '';
-  desc.value = ''
   category.innerHTML = 'Unset';
+    
   //default values for elements 
-  timeStartInput.value = '12:00';
-  timeEndInput.value = '13:00'
-  timeStartElem.innerText = '12:00';
-  timeEndElem.innerText = '13:00';
+  formElem.reset();
 }
 
 function getInputValue() {

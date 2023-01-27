@@ -99,7 +99,6 @@ function navSectionToggle(e) {
 
 function addNewTaskPopUp() {
   toggleTaskForm();
-  Menu();
 }
 
 function toggleSettings(e) {
