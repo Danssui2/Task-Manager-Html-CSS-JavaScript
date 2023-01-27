@@ -1035,6 +1035,15 @@ body {
     font-size: 45%;
   }
 
+  .create-task {
+    width: 50%;
+    left: 25%;
+  }
+  
+  .create-task h2 {
+    margin-bottom: 1rem;
+  }
+
   .categories-cont {
     display: flex !important;
     flex-wrap: wrap;
