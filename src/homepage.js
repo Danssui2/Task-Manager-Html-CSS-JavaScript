@@ -1,6 +1,6 @@
 import * as model from './model.js';
 import { icons } from './helper.js';
-import { toggleTaskForm, category } from './createTask.js';
+import { toggleTaskForm } from './createTask.js';
 
 const body = document.body;
 const parentContainer = document.querySelector('.schedule-section');

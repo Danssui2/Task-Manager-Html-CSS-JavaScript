@@ -4,14 +4,8 @@ import { openTaskView } from './viewTask.js';
 const addTaskParentElem = document.querySelector('.create-task');
 
 let categoryBtn;
-export let category;
+export let selectedCategory;
 let categoryMenu;
-let title;
-let desc;
-let timeStartInput;
-let timeEndInput;
-let timeStartElem;
-let timeEndElem;
 let formElem;
 
 export function generateAddTaskHTML() {
@@ -25,8 +19,8 @@ export function generateAddTaskHTML() {
         <label for='taskname'>Task Name</label>
         <input name='taskname' type="text" id="taskname" />
         
-        <label for="task-desc">Task Description</label>
-        <input name='task-desc' type="text" id="task-desc" />
+        <label for="taskdesc">Task Description</label>
+        <input name='taskdesc' type="text" id="taskdesc" />
       </div>
 
       <div class='cta-cont'>
@@ -82,45 +76,47 @@ export function generateAddTaskHTML() {
 
   addTaskParentElem.insertAdjacentHTML('beforeend', html);
   categoryBtn = document.querySelector(`[data-btn="category"]`);
-  category = document.querySelector('[data-category-span]');
-  title = document.getElementById('taskname');
-  desc = document.getElementById('taskdesc');
-  timeStartInput = document.getElementById('timestart');
-  timeEndInput = document.getElementById('timeend');
+  selectedCategory = document.querySelector('[data-category-span]');
   categoryMenu = document.querySelector('.category_Menu');
   formElem = document.querySelector('[data-form]');
+
   init();
 }
 
 function init() {
   const closeCrossBtn = document.querySelector('#closeTaskBtn');
-  const createTaskBtn = document.querySelector('#createTask');
 
-  createTaskBtn.addEventListener('click', createTask);
+  formElem.addEventListener('submit', e => {
+    e.preventDefault();
+    const fd = [...new FormData(formElem)];
+    const fdObj = Object.fromEntries(fd);
+    createTask({ ...fdObj, category: selectedCategory.textContent.toLowerCase() })
+  });
 
   closeCrossBtn.addEventListener('click', closeNewtaskPopup);
 
-  document.addEventListener('click', openSelectCategory);
+  document.addEventListener('click', openCategoriesMenu);
 }
 
-function createTask() {
+function createTask(data) {
   const dateBtns = document.querySelectorAll(".date button");
-  const timeStartEnd = `${timeStartInput.value} — ${timeEndInput.value}`;
+  const { taskname, timestart, timeend } = data;
+  const time = `${timestart} — ${timeend}`;
 
-  if (title.value === '' || timeStartInput.value >= timeEndInput.value) {
+  if (taskname === '' || timestart >= timeend) {
     model.messagePopUp(`Important!
     1. Title Cannot Empty.
     
     2. Task start time cannot be greater or equal to task end time.
     
-    3.Task end time cannot be lower than task start time.`, 'danger', 2000);
+    3.Task end time cannot be lower than task start time.`, 'danger', 4000);
 
     //reset and close the form
     closeNewtaskPopup();
     return
   }
 
-  model.createNewTask(title.value, desc.value, timeStartInput.value, timeEndInput.value, category.innerText, timeStartEnd);
+  model.createNewTask({ time, ...data });
 
   model.messagePopUp('Task Created', 'success');
 
@@ -137,24 +133,20 @@ function closeNewtaskPopup() {
 }
 
 function resetAddTaskForm() {
-  category.innerHTML = 'Unset';
-    
-  //default values for elements 
+  selectedCategory.innerHTML = 'Unset';
+
+  //reset form
   formElem.reset();
 }
 
-function getInputValue() {
-  timeStartInput.addEventListener('input', () => timeStartElem.innerHTML = timeStartInput.value);
+function openCategoriesMenu(e) {
 
-  timeEndInput.addEventListener('input', () => timeEndElem.innerHTML = timeEndInput.value);
-}
-
-function openSelectCategory(e) {
-  
   const btn = e.target.closest('.category-btn-cont');
-  
-  if (!btn && e.target.closest('.category_Menu') != null) {
-    if (e.target.matches('button')) category.innerHTML = e.target.innerText;
+
+  if (btn && e.target.matches('button')) {
+    selectedCategory.innerHTML = e.target.innerText;
+    closeCategoryMenu();
+    return
   }
 
   if (btn) categoryMenu?.classList.add('active');
@@ -167,5 +159,4 @@ function closeCategoryMenu() {
 
 export function toggleTaskForm() {
   addTaskParentElem.classList.toggle('active');
-  getInputValue();
 }

@@ -647,12 +647,12 @@ body {
   margin-bottom: 1rem;
 }
 
-.form-input label[for="task-desc"] {
+.form-input label[for="taskdesc"] {
   margin-top: 4rem;
 }
 
 #taskname,
-#task-desc {
+#taskdesc {
   font-size: 1.6rem;
   font-weight: 500;
   border: none;

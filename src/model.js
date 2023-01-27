@@ -23,8 +23,8 @@ export let taskArray = [{
     {
       uid: "0",
       isCompleted: false,
-      title: "Give me a star ✨",
-      desc: "This is an example",
+      taskname: "Give me a star ✨",
+      taskdesc: "This is an example",
       timestart: "12:00",
       timeend: "13:00",
       time: "Infinity",
@@ -38,6 +38,7 @@ export let statsData = {
   complete: 0,
   deleted: 0,
   total: 1,
+  
   unset: 0,
   work: 0,
   education: 0,
@@ -173,33 +174,23 @@ export function scrollToSection(goTo) {
   if (goTo === 'stats') return document.getElementById('stats').scrollIntoView({ behavior: "smooth" });
 }
 
-
-export function createNewTask(title, desc, timestart, timeend, category, timeStartEnd) {
-
+export function createNewTask(data) {
   const uniqueid = new Date().getTime().toString();
-
-  category = category.toLowerCase();
 
   statsData.active += 1;
   statsData.total += 1;
-  statsData[category] += 1;
+  statsData[data.category] += 1;
 
   const existTask = taskArray.find(task => task.date === currid);
 
   if (existTask) {
-
     const content = existTask.content;
 
     content.push(
     {
       uid: uniqueid,
       isCompleted: false,
-      title: title,
-      desc,
-      timestart,
-      timeend,
-      time: timeStartEnd,
-      category
+      ...data
     });
     renderTasks();
 
@@ -210,12 +201,7 @@ export function createNewTask(title, desc, timestart, timeend, category, timeSta
         {
           uid: uniqueid,
           isCompleted: false,
-          title,
-          desc,
-          timestart,
-          timeend,
-          time: timeStartEnd,
-          category
+          ...data
         }
       ]
     });
@@ -266,8 +252,8 @@ function createTaskCard(content) {
         <use xlink:href='./img/icons.svg#icon-${content.category}'></use>
       </svg>
       <div class="task-content">
-        <h2>${content.title}</h2>
-        <p>${content.desc} </p>
+        <h2>${content.taskname}</h2>
+        <p>${content.taskdesc} </p>
         <span>${content.time}</span>
       </div>
     </div>`
@@ -298,7 +284,7 @@ export function addHandlerTasks(handler) {
 
     contentArr?.forEach(content => {
       if (content.uid === id) {
-        handler(content.title, content.desc, content.timestart, content.timeend, content.category, content.uid, content.isCompleted);
+        handler(content.taskname, content.taskname, content.timestart, content.timeend, content.category, content.uid, content.isCompleted);
       }
     })
   })
