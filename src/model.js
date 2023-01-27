@@ -320,7 +320,7 @@ export function getData() {
 }
 
 export function setTaskContHeight() {
-  const taskContainer = document.querySelector('.task-container-parent');
-  
-  taskContainer.style.height = `${window.innerHeight / 1.5}px`
+  // const taskContainer = document.querySelector('.task-container-parent');
+
+  // taskContainer.style.height = `${window.innerHeight / 1.5}px`
 }
