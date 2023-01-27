@@ -25,7 +25,7 @@ replaced width/height and some other properties unit from px to rem.<br>
 removed width on nav bar and added left,right properties.<br>
 replace dateBtnActive class with dateBtn.active and remove repeating code.<br>
 replaced hex code with hsla to get lighter shadow on date buttons<br>
-add transition on add-task container<br>
+add transition on create-task container<br>
 fixed the create task button slightly overlapping the timers.<br>
 Change the architecture similiar to MVC <br>
 removed background images from nav and added svgs<br>

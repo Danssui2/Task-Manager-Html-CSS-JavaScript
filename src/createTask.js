@@ -1,7 +1,7 @@
 import * as model from './model.js';
 import { openTaskView } from './viewTask.js';
 
-const addTaskParentElem = document.querySelector('.add-task');
+const addTaskParentElem = document.querySelector('.create-task');
 
 let categoryBtn;
 export let category;
@@ -16,28 +16,67 @@ let timeEndElem;
 export function generateAddTaskHTML() {
   const html = `
     <button id="closeTaskBtn">&times</button>
-    <div class="task-form">
-      <h3 id="taskHeader">Task Name</h3>
-      <input type="text" id="taskname" value="" required />
-      
-      <h3 id="taskHeader">Task Description</h3>
-      <input type="text" id="taskdesc" value="" />
-
-      <div class="lower-input">
-        <button data-btn="category">
-          <b>Category : </b> <span>Unset</span>
-        </button>
+    <h2> Create Task </h2>
+    
+    <form class='task-form'>
+    
+      <div class='form-input'>
+        <label for='taskname'>Task Name</label>
+        <input name='taskname' type="text" id="taskname" />
         
-        <button><b>Start</b><br />
-          <span>12:00</span><input type="time" id="timestart" value="12:00" />
-        </button>
-        
-        <button><b>End</b><br />
-          <span>13:00</span><input type="time" id="timeend" value="13:00" />
-        </button>
+        <label for="task-desc">Task Description</label>
+        <input name='task-desc' type="text" id="task-desc" />
       </div>
-    </div>
-    <button id="createTask"> Create New Task </button>`
+
+      <div class='cta-cont'>
+      
+        <div class='category-btn-cont'>
+          <button type='button' data-btn="category">
+            <svg>
+              <use xlink:href='./img/icons.svg#icon-category'></use>
+            </svg>
+            <b>Category : </b>
+          </button>
+          <span>Unset</span>
+          
+          <div class="category_Menu">
+            <button type='button'>unset</button>
+            <button type='button'>work</button>
+            <button type='button'>education</button>
+            <button type='button'>sport</button>
+            <button type='button'>social</button>
+            <button type='button'>entertainment</button>
+          </div>
+        </div>
+        
+        <div class='time-input-cont'>
+          <svg>
+            <use xlink:href='./img/icons.svg#icon-clock'></use>
+          <svg>
+          
+          <div>
+            <label for='timestart'>
+              Start
+            </label>
+            <input type="time" id="timestart" value="12:00" />
+          </div>
+        </div>
+        
+        <div class='time-input-cont'>
+          <svg>
+            <use xlink:href='./img/icons.svg#icon-clock'></use>
+          <svg>
+          
+          <div>
+            <label for='timeend'>
+              End
+            </label>
+            <input type="time" id="timeend" value="13:00" />
+          </div>
+        </div>
+      </div>
+    <button type='submit' id="createTask"> Create New Task </button>
+    </form>`
 
 
   addTaskParentElem.insertAdjacentHTML('beforeend', html);
@@ -47,8 +86,7 @@ export function generateAddTaskHTML() {
   desc = document.getElementById('taskdesc');
   timeStartInput = document.getElementById('timestart');
   timeEndInput = document.getElementById('timeend');
-  timeStartElem = document.querySelector(".lower-input button:nth-child(2) span");
-  timeEndElem = document.querySelector(".lower-input button:nth-child(3) span");
+  categoryMenu = document.querySelector('.category_Menu')
   init();
 }
 
@@ -74,6 +112,7 @@ function createTask() {
     2. Task start time cannot be greater or equal to task end time.
     
     3.Task end time cannot be lower than task start time.`, 'danger', 2000);
+
     //reset and close the form
     closeNewtaskPopup();
     return
@@ -112,24 +151,10 @@ function getInputValue() {
   timeEndInput.addEventListener('input', () => timeEndElem.innerHTML = timeEndInput.value);
 }
 
-export function generateCategoryMenu() {
-  const html = `
-    <div class="category_Menu">
-      <button>unset</button>
-      <button>work</button>
-      <button>education</button>
-      <button>sport</button>
-      <button>social</button>
-      <button>entertainment</button>
-    </div>`
-
-  document.body.insertAdjacentHTML('beforeend', html);
-  categoryMenu = document.querySelector(".category_Menu");
-}
-
 function openSelectCategory(e) {
-  const btn = e.target.matches('[data-btn="category"]');
-
+  
+  const btn = e.target.closest('.category-btn-cont');
+  
   if (!btn && e.target.closest('.category_Menu') != null) {
     if (e.target.matches('button')) category.innerHTML = e.target.innerText;
   }
