@@ -1,4 +1,3 @@
-import { statsData, taskArray, currid, renderTasks, setLocalStorage, messagePopUp } from './model.js'
 const parentElement = document.querySelector('.task-view');
 
 let actionBtnsCont;
@@ -7,45 +6,62 @@ export function generateTaskView() {
   const html = `
     <button id="closeViewBtn">&times;</button>
     <div class="task-form-view">
+    
     </div>`
 
   parentElement.insertAdjacentHTML('beforeend', html);
   document.querySelector('#closeViewBtn').addEventListener('click', closeTask);
 }
 
-export function openTaskView(title, desc, timeStart, timeEnd, category, uniqueid, isCompleted) {
+export function openTaskView(data) {
+  const { taskname, taskdesc, category, timestart, timeend, uid, isCompleted } = data;
+  
   const html = `
-    <h2>${title}</h2>
-      <div class='img_cont'>
+    <h2>Task Description</h2>
+      <div class='svg_cont'>
         <svg>
           <use xlink:href='./img/icons.svg#icon-${category}'></use>
         </svg>
       </div>
-      <div class="desc_container">
-        <p>Task Description</p>
-        <p class="task_view_desc">${desc}</p>
+      <div class="task_info_cont">
+        <h3>${taskname}</h3>
+        <p class="task_view_desc">${taskdesc}</p>
       </div>
       
-      <div class="lower-holder-view">
-        <div class="category_time_cont">
-          <button>
-            <b>Category :</b>
-            <span>${category}</span>
-          </button>
-          <button>
-            <b>Start</b> <br>
-            <span>${timeStart}</span>
-          </button>
-          <button>
-            <b>End</b><br>
-            <span>${timeEnd}</span>
-          </button>
+      <div class="task-form-view-details">
+        <div class='task-form-view-category'>
+          <svg>
+            <use xlink:href='./img/icons.svg#icon-category'></use>
+          </svg>
+          <p>Category : ${category} </p>
         </div>
-       
-        <div data-task-id="${uniqueid}" class="action_button_cont">
+        
+        <div class='time-input-start-cont'>
+          <svg>
+            <use xlink:href='./img/icons.svg#icon-clock'></use>
+          <svg>
+          
+          <div>
+            <p>Start</p>
+            <p>${timestart}</p>
+          </div>
+        </div>
+        
+        <div class='time-input-end-cont'>
+          <svg>
+            <use xlink:href='./img/icons.svg#icon-clock'></use>
+          <svg>
+          
+          <div>
+            <p>End</p>
+            <p>${timeend}</p>
+          </div>
+        </div>
+
+        <div data-task-id="${uid}" class="action_button_cont">
           <button id="taskComplete">Complete</button>
           <button id="taskDelete">Delete</button>
-        <div>
+        </div>
       </div>`;
 
   const taskViewForm = document.querySelector('.task-form-view');

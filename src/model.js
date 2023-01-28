@@ -284,7 +284,7 @@ export function addHandlerTasks(handler) {
 
     contentArr?.forEach(content => {
       if (content.uid === id) {
-        handler(content.taskname, content.taskname, content.timestart, content.timeend, content.category, content.uid, content.isCompleted);
+        handler(content);
       }
     })
   })
