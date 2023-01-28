@@ -48,7 +48,7 @@ export function generateHomepageHTML() {
     <div class="navbar">
       <button class='active' data-nav-btn="home">
         ${icons.home}
-      <button data-nav-btn="addTask" >
+      <button class='add-task' data-nav-btn="addTask" >
         ${icons.add}
       </button>
       <button data-nav-btn="stats">

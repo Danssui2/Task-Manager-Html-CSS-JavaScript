@@ -35,12 +35,12 @@ export function generateAddTaskHTML() {
           <span data-category-span>Unset</span>
           
           <div class="category_Menu">
-            <button type='button'>unset</button>
-            <button type='button'>work</button>
-            <button type='button'>education</button>
-            <button type='button'>sport</button>
-            <button type='button'>social</button>
-            <button type='button'>entertainment</button>
+            <button class='category' type='button'>unset</button>
+            <button class='category' type='button'>work</button>
+            <button class='category' type='button'>education</button>
+            <button class='category' type='button'>sport</button>
+            <button class='category' type='button'>social</button>
+            <button class='category' type='button'>entertainment</button>
           </div>
         </div>
         
@@ -143,7 +143,7 @@ function openCategoriesMenu(e) {
 
   const btn = e.target.closest('.category-btn-cont');
 
-  if (btn && e.target.matches('button')) {
+  if (btn && e.target.matches('category')) {
     selectedCategory.innerHTML = e.target.innerText;
     closeCategoryMenu();
     return
