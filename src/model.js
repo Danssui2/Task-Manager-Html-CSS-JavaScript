@@ -38,7 +38,7 @@ export let statsData = {
   complete: 0,
   deleted: 0,
   total: 1,
-  
+
   unset: 0,
   work: 0,
   education: 0,
@@ -152,12 +152,12 @@ export function createMonthDays() {
     if (i === currDay) {
       homepage.dateContainer.scrollLeft = datesBtn.offsetLeft - homepage.dateContainer.offsetLeft;
       currDayActive(datesBtn);
-      renderTasks();
-
-      //Scroll to active btn on desktop view
+      // renderTasks();
+    //   //Scroll to active btn on desktop view
       if (width.matches) homepage.dateContainer.scrollTop = datesBtn.offsetTop - homepage.dateContainer.offsetTop;
     }
   }
+  renderTasks();
 }
 
 export function currDayActive(elem) {
@@ -237,7 +237,6 @@ export function renderTasks() {
   } else emptyContainer.style.display = "block";
   generateStats();
   scrollToSection('home');
-  
   setLocalStorage('tasks', taskArray);
   setLocalStorage('stats', statsData);
 }

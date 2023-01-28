@@ -12,7 +12,6 @@ export function renderStatsHTML() {
 
   parentElement.insertAdjacentHTML('beforeend', html);
   statsHolder = document.querySelector('.stats-holder');
-  generateStats();
 }
 
 export function isDesktopView() {
@@ -25,25 +24,23 @@ export function isDesktopView() {
   }
 }
 
+function activeTasksMarkup() {
+  let html = '';
+  for (let key in statsData) {
+    if (key === 'active' || key === 'complete' || key === 'total' || key === 'deleted') html += `<div>
+                  <h1>${statsData[key]}</h1>
+                  <p>${key} Task</p>
+                </div>`
+  }
+  return html
+}
+
+
 export function generateStats() {
+  activeTasksMarkup()
   const html = `
   <div class="box-holder">
-    <div>
-      <h1>${statsData.active}</h1>
-      <p>Active Task</p>
-    </div>
-    <div>
-      <h1>${statsData.complete}</h1>
-      <p>Completed Task</p>
-    </div>
-    <div>
-      <h1>${statsData.total}</h1>
-      <p>Total Task</p>
-    </div>
-    <div>
-      <h1>${statsData.deleted}</h1>
-      <p>Deleted Task</p>
-    </div>
+  ${activeTasksMarkup()}
   </div>
   <div class="lower-box">
     <h2 class="categories-heading">Category</h2>
@@ -59,32 +56,32 @@ export function generateStats() {
         <svg>
           <use xlink:href='./img/icons.svg#icon-work'></use>
         </svg>
-        ${statsData.work}
+      ${ statsData.work }
       </span>
       <span>
         <svg>
           <use xlink:href='./img/icons.svg#icon-education'></use>
-        </svg>        
-        ${statsData.education}
+        </svg>
+      ${ statsData.education }
       </span>
       <span>
         <svg>
           <use xlink:href='./img/icons.svg#icon-sport'></use>
-        </svg>      
-        ${statsData.sport}
+        </svg>
+      ${ statsData.sport }
       </span>
       <span>
         <svg>
           <use xlink:href='./img/icons.svg#icon-social'></use>
-        </svg>      
-        ${statsData.social}
+        </svg>
+      ${ statsData.social }
       </span>
       <span>
         <svg>
           <use xlink:href='./img/icons.svg#icon-entertainment'></use>
-        </svg>      
-        ${statsData.entertainment}
-        </span>
+        </svg>
+      ${ statsData.entertainment }
+      </span>
     </div>
   </div>`
 

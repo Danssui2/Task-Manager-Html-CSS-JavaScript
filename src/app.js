@@ -15,14 +15,12 @@ function generateMarkup() {
   stats.renderStatsHTML();
   homepage.init();
   model.initTime();
-  model.createMonthDays();
-  stats.generateStats();
-  
+
   //initialize the listener when the page loads
   model.addHandlerTasks(viewTask.openTaskView);
   //load theme
   homepage.setTheme();
-  
+
   //check if desktop
   stats.isDesktopView();
 }

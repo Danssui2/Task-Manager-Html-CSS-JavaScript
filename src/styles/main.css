@@ -396,7 +396,6 @@ body {
   margin: 0;
   font-family: 'Poppins', 'Inter';
   letter-spacing: 1px;
-  line-height: 110%;
   display: -webkit-box;
   -webkit-line-clamp: 1;
   -webkit-box-orient: vertical;
@@ -440,11 +439,11 @@ body {
 
 /*STATS PAGE*/
 .stats-section {
-  /* align-self: stretch; */
-  align-self: start;
   flex-shrink: 0;
   width: 100%;
-  /* min-height: 100vh; */
+  border: 2px solid rebeccapurple;
+  display: flex;
+  flex-direction: column;
 }
 
 .stats-heading {
@@ -458,13 +457,13 @@ body {
 .stats-heading>span {
   font-size: 1.3rem;
   color: var(--stats-heading-span);
-  min-height: 100vh;
 }
 
 .stats-holder {
   border: 2px solid red;
   display: flex;
   flex-direction: column;
+  /* margin-top: auto; */
 }
 
 .box-holder {
@@ -489,6 +488,7 @@ body {
 
 .box-holder div h1 {
   font-size: 3.4rem;
+  margin: 0;
 }
 
 .box-holder div:nth-of-type(1) h1,
@@ -514,6 +514,7 @@ body {
 .box-holder div p {
   font-size: 1.3rem;
   font-weight: 700;
+  text-transform: capitalize;
 }
 
 .lower-box {
@@ -969,7 +970,6 @@ body {
   height: 7rem;
   font-size: 1.4rem;
 }
-
 
 .action_button_cont {
   grid-column: 1/-1;
