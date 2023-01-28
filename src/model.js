@@ -1,5 +1,6 @@
 import * as homepage from './homepage.js';
-import { generateStats } from './stats.js'
+// import { generateStats } from './stats.js'
+import { updateStats } from './stats.js'
 import { monthsArr, weekDaysArr } from './helper.js';
 import { openTaskView } from './viewTask.js'
 
@@ -235,7 +236,8 @@ export function renderTasks() {
 
     contentArr.forEach(content => createTaskCard(content))
   } else emptyContainer.style.display = "block";
-  generateStats();
+  // generateStats();
+  updateStats();
   scrollToSection('home');
   setLocalStorage('tasks', taskArray);
   setLocalStorage('stats', statsData);

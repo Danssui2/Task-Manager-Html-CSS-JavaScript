@@ -1,4 +1,5 @@
-import { statsData } from './model.js'
+import { statsData } from './model.js';
+
 let parentElement = document.querySelector('#stats');
 let statsHolder;
 
@@ -7,11 +8,9 @@ export function renderStatsHTML() {
     <h2 class="stats-heading">Statistics
       <span>All</span>
     </h2>
-    <div class="stats-holder">
-    </div>`
+    ${generateStats()}`
 
   parentElement.insertAdjacentHTML('beforeend', html);
-  statsHolder = document.querySelector('.stats-holder');
 }
 
 export function isDesktopView() {
@@ -24,67 +23,72 @@ export function isDesktopView() {
   }
 }
 
+function generateStats() {
+  return `
+  
+    <div class="box-holder">
+    ${activeTasksMarkup()}
+    </div>
+    
+    <div class="lower-box">
+      <h2 class="categories-heading">Category</h2>
+    
+      <div class="categories-cont">
+        <div>
+          <svg>
+            <use xlink:href='./img/icons.svg#icon-unset'></use>
+          </svg>
+          <span data-stats='unset'>${statsData.unset}</span>
+        </div>
+        <div>
+          <svg>
+            <use xlink:href='./img/icons.svg#icon-work'></use>
+          </svg>
+        <span data-stats='work'>${ statsData.work }</span>
+        </div>
+        <div>
+          <svg>
+            <use xlink:href='./img/icons.svg#icon-education'></use>
+          </svg>
+        <span data-stats='education'>${ statsData.education }</span>
+        </div>
+        <div>
+          <svg>
+            <use xlink:href='./img/icons.svg#icon-sport'></use>
+          </svg>
+        <span data-stats='sport'>${ statsData.sport }</span>
+        </div>
+        <div>
+          <svg>
+            <use xlink:href='./img/icons.svg#icon-social'></use>
+          </svg>
+        <span data-stats='social'>${ statsData.social }</span>
+        </div>
+        <div>
+          <svg>
+            <use xlink:href='./img/icons.svg#icon-entertainment'></use>
+          </svg>
+        <span data-stats='entertainment'>${ statsData.entertainment }</span>
+        </div>
+      </div>
+    </div>`
+}
+
 function activeTasksMarkup() {
   let html = '';
   for (let key in statsData) {
     if (key === 'active' || key === 'complete' || key === 'total' || key === 'deleted') html += `<div>
-                  <h1>${statsData[key]}</h1>
-                  <p>${key} Task</p>
-                </div>`
+                <h1 data-stats='${key}'>${statsData[key]}</h1>
+                <p>${key} Task</p>
+              </div>`
   }
   return html
 }
 
+export function updateStats() {
+  const statsElems = document.querySelectorAll('[data-stats]');
 
-export function generateStats() {
-  activeTasksMarkup()
-  const html = `
-  <div class="box-holder">
-  ${activeTasksMarkup()}
-  </div>
-  <div class="lower-box">
-    <h2 class="categories-heading">Category</h2>
-
-    <div class="categories-cont">
-      <span>
-        <svg>
-          <use xlink:href='./img/icons.svg#icon-unset'></use>
-        </svg>
-        ${statsData.unset}
-      </span>
-      <span>
-        <svg>
-          <use xlink:href='./img/icons.svg#icon-work'></use>
-        </svg>
-      ${ statsData.work }
-      </span>
-      <span>
-        <svg>
-          <use xlink:href='./img/icons.svg#icon-education'></use>
-        </svg>
-      ${ statsData.education }
-      </span>
-      <span>
-        <svg>
-          <use xlink:href='./img/icons.svg#icon-sport'></use>
-        </svg>
-      ${ statsData.sport }
-      </span>
-      <span>
-        <svg>
-          <use xlink:href='./img/icons.svg#icon-social'></use>
-        </svg>
-      ${ statsData.social }
-      </span>
-      <span>
-        <svg>
-          <use xlink:href='./img/icons.svg#icon-entertainment'></use>
-        </svg>
-      ${ statsData.entertainment }
-      </span>
-    </div>
-  </div>`
-
-  statsHolder.innerHTML = '';
-  statsHolder.insertAdjacentHTML('beforeend', html);
+  statsElems.forEach(elem => {
+    elem.textContent = statsData[elem.dataset.stats];
+  })
 }
