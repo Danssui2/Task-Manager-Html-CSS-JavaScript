@@ -440,10 +440,11 @@ body {
 
 /*STATS PAGE*/
 .stats-section {
-  align-self: stretch;
+  /* align-self: stretch; */
+  align-self: start;
   flex-shrink: 0;
   width: 100%;
-  min-height: 100vh;
+  /* min-height: 100vh; */
 }
 
 .stats-heading {
@@ -457,6 +458,7 @@ body {
 .stats-heading>span {
   font-size: 1.3rem;
   color: var(--stats-heading-span);
+  min-height: 100vh;
 }
 
 .stats-holder {

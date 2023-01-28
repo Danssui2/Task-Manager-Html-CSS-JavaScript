@@ -236,6 +236,8 @@ export function renderTasks() {
     contentArr.forEach(content => createTaskCard(content))
   } else emptyContainer.style.display = "block";
   generateStats();
+  scrollToSection('home');
+  
   setLocalStorage('tasks', taskArray);
   setLocalStorage('stats', statsData);
 }
