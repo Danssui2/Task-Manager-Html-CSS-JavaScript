@@ -329,6 +329,7 @@ body {
   flex-direction: column;
   justify-items: space-between;
   align-items: center;
+  row-gap: 1rem;
 }
 
 #complete {
@@ -340,7 +341,7 @@ body {
 }
 
 .completed-tag {
-  width: 14rem;
+  width: 50%;
   height: 3.5rem;
   display: flex;
   justify-content: center;
@@ -351,6 +352,7 @@ body {
   font-size: 1.3rem;
   font-weight: bold;
   padding-inline: 1rem;
+  margin-block: 2rem;
   border: 1px solid var(--completed-border);
 }
 
@@ -438,11 +440,10 @@ body {
 
 /*STATS PAGE*/
 .stats-section {
-  /* align-self: stretch; */
+  align-self: stretch;
   flex-shrink: 0;
   width: 100%;
-  /* min-h */
-  height: 100vh;
+  min-height: 100vh;
 }
 
 .stats-heading {
@@ -1001,29 +1002,28 @@ body {
 
 /* pop up message */
 .message {
-  display: flex;
-  align-items: center;
-  justify-content: center;
+  display: grid;
+  place-items: center;
   position: fixed;
   top: 50%;
   left: 50%;
-  transform: translate(-50%, -50%);
   padding: 2rem;
-  border-radius: 5px;
+  border-radius: .5rem;
   opacity: 0;
   pointer-events: none;
   user-select: none;
   width: 50%;
-
   text-align: center;
+
   transition: 500ms ease-in-out;
+  transform: translate(-50%, -50%);
   box-shadow: 1px 0 5px 0 rgba(var(--shadow-primary), 0.1);
 }
 
 .message p {
   margin: 0;
   text-transform: capitalize;
-  font-size: clamp(1rem, 3vw, 1.5rem);
+  font-size: 1.3rem;
 }
 
 .message.success {
@@ -1060,7 +1060,7 @@ body {
 
   .create-task {
     width: 50%;
-    left: 25%;
+    margin-inline: auto;
   }
 
   .create-task h2 {

@@ -1,3 +1,5 @@
+import { statsData, taskArray, currid, renderTasks, setLocalStorage, messagePopUp } from './model.js'
+
 const parentElement = document.querySelector('.task-view');
 
 let actionBtnsCont;
@@ -15,7 +17,7 @@ export function generateTaskView() {
 
 export function openTaskView(data) {
   const { taskname, taskdesc, category, timestart, timeend, uid, isCompleted } = data;
-  
+
   const html = `
     <h2>Task Description</h2>
       <div class='svg_cont'>
@@ -106,6 +108,7 @@ function CompleteDeleteTask(uniqueid, btnType) {
 
     switch (btnType) {
       case 'taskComplete':
+        console.log(getUidTask);
         getUidTask.isCompleted = true;
         statsData.complete++;
         statsData.active--;
@@ -118,6 +121,7 @@ function CompleteDeleteTask(uniqueid, btnType) {
         currDate.content.filter((task, i) => {
           task.uid === getUidTask.uid && currDate.content.splice(i, 1);
         });
+        statsData[getUidTask.category] -= 1;
         statsData.total--
         break;
       default:
