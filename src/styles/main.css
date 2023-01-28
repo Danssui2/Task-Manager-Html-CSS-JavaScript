@@ -117,8 +117,9 @@ body {
 /* App container */
 .container {
   display: flex;
-  max-height: 80vh;
+  max-height: 95vh;
   overflow: hidden;
+  padding-bottom: 1rem;
 }
 
 /*HOME PAGE*/
@@ -444,11 +445,13 @@ body {
   width: 100%;
   display: grid;
   grid-template-rows: repeat(3, min-content);
-  row-gap: 3rem;
+  row-gap: 4rem;
   align-content: space-between;
+  justify-items: center;
 }
 
 .stats-heading {
+  justify-self: start;
   margin: 1rem 0 0 1rem;
   font-size: 3rem;
   display: flex;
@@ -522,7 +525,7 @@ body {
   padding-bottom: 3rem;
   border-radius: 3rem 3rem 0 0;
   background: var(--bg-linear_radial);
-  border: 1px solid var(--category-stats-border);
+  border-top: 1px solid var(--category-stats-border);
 }
 
 .lower-box .categories-heading {
@@ -1072,6 +1075,13 @@ body {
   .categories-cont {
     display: flex !important;
     flex-wrap: wrap;
+    justify-content: center;
+    column-gap: 3rem;
+  }
+  
+  .box-holder {
+    display: grid;
+    grid-template-columns: repeat(4, min-content);
     justify-content: center;
     column-gap: 3rem;
   }
