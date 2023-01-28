@@ -117,6 +117,7 @@ body {
 /* App container */
 .container {
   display: flex;
+  min-height: 93vh;
   max-height: 95vh;
   overflow: hidden;
   padding-bottom: 1rem;
@@ -129,7 +130,7 @@ body {
   display: flex;
   flex-direction: column;
   align-items: center;
-  min-height: 100vh;
+  /* min-height: 100vh; */
 }
 
 .date-holder {
@@ -1078,11 +1079,9 @@ body {
     justify-content: center;
     column-gap: 3rem;
   }
-  
+
   .box-holder {
-    display: grid;
-    grid-template-columns: repeat(4, min-content);
-    justify-content: center;
+    display: flex;
     column-gap: 3rem;
   }
 }
@@ -1097,6 +1096,12 @@ body {
 
   .categories-cont {
     display: grid !important;
+  }
+
+  .box-holder {
+    display: grid;
+    grid-template-columns: repeat(2, min-content);
+    column-gap: 1rem;
   }
 }
 
