@@ -45,17 +45,15 @@ export function generateHomepageHTML() {
       </div>
     </div>
 
-    <div class='navbar-cont'>
-      <div class="navbar">
-        <button class='active' data-nav-btn="home">
-          ${icons.home}
-        <button class='add-task' data-nav-btn="addTask" >
-          ${icons.add}
-        </button>
-        <button data-nav-btn="stats">
-        ${icons.pie}
-        </button>
-      </div>
+    <div class="navbar">
+      <button class='active' data-nav-btn="home">
+        ${icons.home}
+      <button class='add-task' data-nav-btn="addTask" >
+        ${icons.add}
+      </button>
+      <button data-nav-btn="stats">
+      ${icons.pie}
+      </button>
     </div>`;
 
   parentContainer.insertAdjacentHTML('beforeend', html);
@@ -67,18 +65,10 @@ export function generateHomepageHTML() {
 }
 
 export function init() {
-  const navToggleBtn = document.querySelector('.navbar-cont');
-
   changeMonthCont.addEventListener('click', model.changeMonth);
   nav.addEventListener('click', navSectionToggle);
   document.addEventListener('click', toggleSettings);
   settingsMenu.addEventListener('click', toggleTheme);
-  navToggleBtn.addEventListener('click', navToggle)
-}
-
-function navToggle(e) {
-  if (e.target.closest('.navbar')) return
-  nav.classList.toggle('active');
 }
 
 function navSectionToggle(e) {
@@ -113,7 +103,7 @@ function addNewTaskPopUp() {
 
 function toggleSettings(e) {
   const isSettingsBtn = e.target.closest('.icon');
-
+  
   if (!isSettingsBtn && e.target.closest('.settings_menu') != null) return
 
   if (isSettingsBtn) settingsMenu.classList.toggle('active');
