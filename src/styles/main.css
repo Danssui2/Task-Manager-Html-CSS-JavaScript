@@ -1048,6 +1048,7 @@ body {
   transition: 500ms ease-in-out;
 }
 
+/*320px*/
 @media screen and (max-width: 20em) {
 
   html {
@@ -1056,13 +1057,8 @@ body {
   }
 }
 
-@media screen and (min-width: 25.8em) {
-  .task-container-parent {
-    height: 53rem;
-  }
-}
-
-@media screen and (min-height: 35.5em) {
+/*568px*/
+@media screen and (max-height: 35.5em) {
   .task-container-parent {
     height: 60rem;
   }
