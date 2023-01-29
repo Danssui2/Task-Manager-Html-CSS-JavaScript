@@ -1,3 +1,4 @@
+import icons from '../img/icons.svg'
 import { statsData, taskArray, currid, renderTasks, setLocalStorage, messagePopUp } from './model.js'
 
 const parentElement = document.querySelector('.task-view');
@@ -22,7 +23,7 @@ export function openTaskView(data) {
     <h2>Task Description</h2>
       <div class='svg_cont'>
         <svg>
-          <use xlink:href='./img/icons.svg#icon-${category}'></use>
+          <use xlink:href='${icons}#icon-${category}'></use>
         </svg>
       </div>
       <div class="task_info_cont">
@@ -33,14 +34,14 @@ export function openTaskView(data) {
       <div class="task-form-view-details">
         <div class='task-form-view-category'>
           <svg>
-            <use xlink:href='./img/icons.svg#icon-category'></use>
+            <use xlink:href='${icons}#icon-category'></use>
           </svg>
           <p>Category : ${category} </p>
         </div>
         
         <div class='time-input-start-cont'>
           <svg>
-            <use xlink:href='./img/icons.svg#icon-clock'></use>
+            <use xlink:href='${icons}#icon-clock'></use>
           <svg>
           
           <div>
@@ -51,7 +52,7 @@ export function openTaskView(data) {
         
         <div class='time-input-end-cont'>
           <svg>
-            <use xlink:href='./img/icons.svg#icon-clock'></use>
+            <use xlink:href='${icons}#icon-clock'></use>
           <svg>
           
           <div>

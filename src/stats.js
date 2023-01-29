@@ -1,4 +1,5 @@
 import { statsData } from './model.js';
+import icons from '../img/icons.svg';
 
 let parentElement = document.querySelector('#stats');
 let statsHolder;
@@ -36,37 +37,37 @@ function generateStats() {
       <div class="categories-cont">
         <div>
           <svg>
-            <use xlink:href='./img/icons.svg#icon-unset'></use>
+            <use xlink:href='${icons}#icon-unset'></use>
           </svg>
           <span data-stats='unset'>${statsData.unset}</span>
         </div>
         <div>
           <svg>
-            <use xlink:href='./img/icons.svg#icon-work'></use>
+            <use xlink:href='${icons}#icon-work'></use>
           </svg>
         <span data-stats='work'>${ statsData.work }</span>
         </div>
         <div>
           <svg>
-            <use xlink:href='./img/icons.svg#icon-education'></use>
+            <use xlink:href='${icons}#icon-education'></use>
           </svg>
         <span data-stats='education'>${ statsData.education }</span>
         </div>
         <div>
           <svg>
-            <use xlink:href='./img/icons.svg#icon-sport'></use>
+            <use xlink:href='${icons}#icon-sport'></use>
           </svg>
         <span data-stats='sport'>${ statsData.sport }</span>
         </div>
         <div>
           <svg>
-            <use xlink:href='./img/icons.svg#icon-social'></use>
+            <use xlink:href='${icons}#icon-social'></use>
           </svg>
         <span data-stats='social'>${ statsData.social }</span>
         </div>
         <div>
           <svg>
-            <use xlink:href='./img/icons.svg#icon-entertainment'></use>
+            <use xlink:href='${icons}#icon-entertainment'></use>
           </svg>
         <span data-stats='entertainment'>${ statsData.entertainment }</span>
         </div>

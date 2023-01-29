@@ -1,5 +1,6 @@
 import * as model from './model.js';
 import { openTaskView } from './viewTask.js';
+import icons from '../img/icons.svg';
 
 const addTaskParentElem = document.querySelector('.create-task');
 
@@ -28,7 +29,7 @@ export function generateAddTaskHTML() {
         <div class='category-btn-cont'>
           <button type='button' data-btn="category">
             <svg>
-              <use xlink:href='./img/icons.svg#icon-category'></use>
+              <use xlink:href='${icons}#icon-category'></use>
             </svg>
             <b>Category : </b>
           </button>
@@ -46,7 +47,7 @@ export function generateAddTaskHTML() {
         
         <div class='time-input-cont'>
           <svg>
-            <use xlink:href='./img/icons.svg#icon-clock'></use>
+            <use xlink:href='${icons}#icon-clock'></use>
           <svg>
           
           <div>
@@ -59,7 +60,7 @@ export function generateAddTaskHTML() {
         
         <div class='time-input-cont'>
           <svg>
-            <use xlink:href='./img/icons.svg#icon-clock'></use>
+            <use xlink:href='${icons}#icon-clock'></use>
           <svg>
           
           <div>
@@ -143,7 +144,7 @@ function openCategoriesMenu(e) {
 
   const btn = e.target.closest('.category-btn-cont');
 
-  if (btn && e.target.matches('category')) {
+  if (btn && e.target.closest('.category_Menu') != null) {
     selectedCategory.innerHTML = e.target.innerText;
     closeCategoryMenu();
     return

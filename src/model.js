@@ -1,5 +1,5 @@
+import icons from '../img/icons.svg';
 import * as homepage from './homepage.js';
-// import { generateStats } from './stats.js'
 import { updateStats } from './stats.js'
 import { monthsArr, weekDaysArr } from './helper.js';
 import { openTaskView } from './viewTask.js'
@@ -252,7 +252,7 @@ function createTaskCard(content) {
   const html = `
     <div data-id='${content.uid}' class="task-card">
       <svg>
-        <use xlink:href='./img/icons.svg#icon-${content.category}'></use>
+        <use xlink:href='${icons}#icon-${content.category}'></use>
       </svg>
       <div class="task-content">
         <h2>${content.taskname}</h2>
