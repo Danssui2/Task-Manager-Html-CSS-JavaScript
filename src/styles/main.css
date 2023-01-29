@@ -25,6 +25,7 @@ body {
   font-size: inherit;
   padding: 0;
   margin: 0;
+  min-height: 90vh;
 }
 
 /* Setting gear */
@@ -117,10 +118,8 @@ body {
 /* App container */
 .container {
   display: flex;
-  min-height: 88vh;
-  max-height: 95vh;
+  min-height: 95vh;
   overflow: hidden;
-  padding-bottom: 1rem;
 }
 
 /*HOME PAGE*/
@@ -213,7 +212,7 @@ body {
   backdrop-filter: blur(10px);
   -webkit-backdrop-filter: blur(20px);
   background: var(--transparency);
-  box-shadow: 0 0px 1px 0 rgba(var(--shadow-primary), 0.7);
+  box-shadow: 0 0 0.1rem 0 rgba(var(--shadow-primary), 0.7);
 }
 
 .dateBtn {
@@ -246,18 +245,53 @@ body {
   font-size: 0.6em;
 }
 
-.navbar {
+.navbar-cont {
   position: fixed;
-  bottom: 0;
-  right: 0;
-  left: 0;
-  height: 7rem;
+  display: flex;
+  align-items: center;
+  right: 5%;
+  bottom: 5%;
+  width: 5rem;
+  height: 5rem;
+  border-radius: 50%;
+  background: var(--bg-primary);
+}
+
+.navbar-cont::after {
+  position: absolute;
+  content: "+";
+  top:0;
+  width: 5rem;
+  height: 5rem;
+  border-radius: 50%;
+  font-size: 4rem;
+  
+  display: flex;
+  justify-content: center;
+}
+
+.navbar {
   display: flex;
   justify-content: space-evenly;
   align-items: center;
-  z-index: 10;
+  column-gap: 1rem;
+  
+  margin-left: -.5rem;
+  transform: translateX(0);
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
   background: var(--bg-primary);
-  border-radius: 2.5rem 2.5rem 0 0;
+  border-radius: 5rem;
+  padding: 1rem 2rem;
+  transition: transform 700ms cubic-bezier(.14, .27, .57, 1.46);
+}
+
+.navbar.active {
+   transform: translateX(-100%);
+   opacity: 1;
+   visibility: visible;
+   pointer-events: auto; 
 }
 
 .navbar button {
@@ -265,6 +299,7 @@ body {
   height: 4rem;
   background: none;
   border: none;
+  padding: 0;
 }
 
 .navbar button svg {
@@ -306,7 +341,8 @@ body {
   overflow-y: scroll;
   backdrop-filter: blur(10px);
   background: var(--transparency);
-  height: 48rem;
+  height: 55rem;
+  /* max-height: 55rem; */
   padding-top: 2rem;
   padding-bottom: 10rem;
   border-top: .5px solid #fff;
@@ -324,7 +360,7 @@ body {
 }
 
 .task-container-completed {
-  position: relative;
+  /* position: relative; */
   width: 100%;
   display: none;
   flex-shrink: 0;
@@ -556,7 +592,7 @@ body {
 }
 
 .categories-cont>div>svg {
-  width: 1.5rem;
+  width: 2rem;
   display: flex;
   fill: url('#Gradient1');
 }
@@ -590,7 +626,6 @@ body {
   grid-column: 4/5;
   grid-row: 2/3;
 }
-
 
 /*CREATE TASK*/
 .create-task {
@@ -1309,7 +1344,7 @@ body {
   .categories-cont div {
     width: 10rem;
   }
-  
+
   .categories-cont>div>span {
     font-size: 1.3rem;
   }
