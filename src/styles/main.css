@@ -306,7 +306,7 @@ body {
   overflow-y: scroll;
   backdrop-filter: blur(10px);
   background: var(--transparency);
-  height: 48rem;
+  height: 50rem;
   padding-top: 2rem;
   padding-bottom: 10rem;
   border-top: .5px solid #fff;
@@ -1059,6 +1059,12 @@ body {
 @media screen and (min-width: 25.8em) {
   .task-container-parent {
     height: 53rem;
+  }
+}
+
+@media screen and (min-height: 35.5em) {
+  .task-container-parent {
+    height: 60rem;
   }
 }
 
