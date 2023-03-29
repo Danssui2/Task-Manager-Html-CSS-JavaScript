@@ -154,7 +154,7 @@ export function createMonthDays() {
       homepage.dateContainer.scrollLeft = datesBtn.offsetLeft - homepage.dateContainer.offsetLeft;
       currDayActive(datesBtn);
       // renderTasks();
-    //   //Scroll to active btn on desktop view
+     //Scroll to active btn on desktop view
       if (width.matches) homepage.dateContainer.scrollTop = datesBtn.offsetTop - homepage.dateContainer.offsetTop;
     }
   }

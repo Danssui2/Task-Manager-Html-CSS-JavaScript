@@ -109,7 +109,6 @@ function CompleteDeleteTask(uniqueid, btnType) {
 
     switch (btnType) {
       case 'taskComplete':
-        console.log(getUidTask);
         getUidTask.isCompleted = true;
         statsData.complete++;
         statsData.active--;

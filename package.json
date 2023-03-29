@@ -1,32 +1,15 @@
 {
   "name": "task-manager",
-  "version": "1.0.0",
   "description": "![Thumbnail](img/cover.png) This is a fully functional web based task manager app.",
-  "main": "index.js",
+  "private": true,
+  "version": "0.0.0",
+  "type": "module",
   "scripts": {
-    "compile:parcel": "parcel index.html",
-    "concat:css": "concat -o src/styles/style.concat.css src/styles/main.css src/styles/themes.css",
-    "prefix:css": "postcss --use autoprefixer -b 'last 10 versions' src/styles/style.concat.css -o src/styles/style.prefix.css",
-    "compress:css": "sass src/styles/style.prefix.css src/styles/style.min.css --style compressed",
-    "build:css": "npm-run-all concat:css prefix:css compress:css"
-  },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/Suhail-007/Task-Manager.git"
-  },
-  "keywords": [],
-  "author": "Suhail",
-  "license": "ISC",
-  "bugs": {
-    "url": "https://github.com/Suhail-007/Task-Manager/issues"
+    "dev": "vite",
+    "build": "vite build",
+    "preview": "vite preview"
   },
   "devDependencies": {
-    "autoprefixer": "^10.4.13",
-    "concat": "^1.0.3",
-    "npm-run-all": "^4.1.5",
-    "parcel-bundler": "^1.8.1",
-    "postcss-cli": "^10.0.0",
-    "sass": "^1.56.1"
-  },
-  "homepage": "https://github.com/Suhail-007/Task-Manager#readme"
+    "vite": "^4.2.0"
+  }
 }
