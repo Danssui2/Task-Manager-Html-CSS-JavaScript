@@ -42,4 +42,3 @@ function init() {
   generateMarkup();
 }
 
-init();
