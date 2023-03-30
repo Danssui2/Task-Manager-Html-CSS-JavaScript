@@ -1,3 +1,4 @@
+const CACHE_NAME = 'v1';
 
 self.addEventListener('install', e => {
 
@@ -8,7 +9,7 @@ self.addEventListener('install', e => {
   const preCache = async () => {
     try {
       const cache = await caches.open(CACHE_NAME);
-      return cache.addAll(['/', '/src/app.js', 'img/icons.svg', 'img/bg.png']);
+      return cache.addAll(['/', 'src/app.js', 'src/assets/icons.svg', 'src/assets/bg.png']);
     } catch (err) {
       console.error(err);
     }
