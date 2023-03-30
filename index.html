@@ -3,7 +3,6 @@
 
 <head>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <!-- <link rel="stylesheet" href="src/styles/main.css" /> -->
   
   <link rel="apple-touch-icon" href="./public/apple-touch-icon.png" />
   
@@ -55,17 +54,6 @@
   </div>
 
 
-  <script>
-    if ('serviceWorker' in navigator) {
-      navigator.serviceWorker.register('./sw.js')
-        .then(registration => {
-          console.debug('Service worker registered', registration);
-        })
-        .catch(err => console.error('Service worker registration failed ', err))
-    } else {
-      console.error('Service worker not supported');
-    }
-  </script>
 </body>
 
 </html>
