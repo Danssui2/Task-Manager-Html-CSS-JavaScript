@@ -31,4 +31,4 @@ const cacheFirst = async (request) => {
 
 self.addEventListener('fetch', e => {
   e.respondWith(cacheFirst(e.request))
-})
+});

@@ -47,5 +47,5 @@
   "display": "standalone",
   "theme_color": "#000000",
   "background_color": "#ffffff",
-  "orientation": "any"
+  "start_url": "."
 }
