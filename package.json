@@ -2,7 +2,7 @@
   "name": "task-manager",
   "description": "![Thumbnail](img/cover.png) This is a fully functional web based task manager app.",
   "private": true,
-  "version": "0.0.0",
+  "version": "2.0.0",
   "type": "module",
   "scripts": {
     "dev": "vite",

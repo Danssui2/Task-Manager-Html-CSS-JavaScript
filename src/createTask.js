@@ -1,6 +1,6 @@
-import * as model from './model.js';
+import { messagePopUp, createNewTask, addHandlerTasks } from './model.js';
 import { openTaskView } from './viewTask.js';
-import icons from '../img/icons.svg';
+import icons from './assets/icons.svg';
 
 const addTaskParentElem = document.querySelector('.create-task');
 
@@ -105,7 +105,7 @@ function createTask(data) {
   const time = `${timestart} — ${timeend}`;
 
   if (taskname === '' || timestart >= timeend) {
-    model.messagePopUp(`Important!
+    messagePopUp(`Important!
     1. Title Cannot Empty.
     
     2. Task start time cannot be greater or equal to task end time.
@@ -117,15 +117,15 @@ function createTask(data) {
     return
   }
 
-  model.createNewTask({ time, ...data });
+  createNewTask({ time, ...data });
 
-  model.messagePopUp('Task Created', 'success');
+  messagePopUp('Task Created', 'success');
 
   //reset and close the form
   closeNewtaskPopup();
 
   // for the newly created tasks;
-  model.addHandlerTasks(openTaskView);
+  addHandlerTasks(openTaskView);
 }
 
 function closeNewtaskPopup() {

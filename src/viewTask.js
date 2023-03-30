@@ -1,4 +1,4 @@
-import icons from '../img/icons.svg'
+import icons from './assets/icons.svg'
 import { statsData, taskArray, currid, renderTasks, setLocalStorage, messagePopUp } from './model.js'
 
 const parentElement = document.querySelector('.task-view');

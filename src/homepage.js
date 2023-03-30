@@ -1,4 +1,4 @@
-import * as model from './model.js';
+import { changeMonth, scrollToSection, theme, setLocalStorage } from './model.js';
 import { icons } from './helper.js';
 import { toggleTaskForm } from './createTask.js';
 
@@ -65,7 +65,7 @@ export function generateHomepageHTML() {
 }
 
 export function init() {
-  changeMonthCont.addEventListener('click', model.changeMonth);
+  changeMonthCont.addEventListener('click', changeMonth);
   nav.addEventListener('click', navSectionToggle);
   document.addEventListener('click', toggleSettings);
   settingsMenu.addEventListener('click', toggleTheme);
@@ -82,14 +82,14 @@ function navSectionToggle(e) {
 
   switch (dataset) {
     case 'home':
-      model.scrollToSection(dataset);
+      scrollToSection(dataset);
       btn.classList.add('active');
       break;
     case 'addTask':
       addNewTaskPopUp();
       break;
     case 'stats':
-      model.scrollToSection(dataset);
+      scrollToSection(dataset);
       btn.classList.add('active');
       break;
     default:
@@ -103,7 +103,7 @@ function addNewTaskPopUp() {
 
 function toggleSettings(e) {
   const isSettingsBtn = e.target.closest('.icon');
-  
+
   if (!isSettingsBtn && e.target.closest('.settings_menu') != null) return
 
   if (isSettingsBtn) settingsMenu.classList.toggle('active');
@@ -136,8 +136,8 @@ export function toggleTheme(e) {
     default:
       return
   }
-  model.theme.mode = dataset;
-  model.setLocalStorage('theme', model.theme);
+  theme.mode = dataset;
+  setLocalStorage('theme', theme);
 }
 
 function systemDefaultTheme() {
@@ -148,6 +148,6 @@ function systemDefaultTheme() {
 }
 
 export function setTheme() {
-  if (model.theme.mode === 'system-default') systemDefaultTheme();
-  body.classList.add(`${model.theme.mode}`);
+  if (theme.mode === 'system-default') systemDefaultTheme();
+  body.classList.add(`${theme.mode}`);
 }

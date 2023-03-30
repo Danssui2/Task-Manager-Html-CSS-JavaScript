@@ -1,28 +1,30 @@
-//Created by DanssUiDanssUi
-import * as homepage from './homepage.js'
-import * as model from './model.js'
-import * as stats from './stats.js'
-import * as viewTask from './viewTask.js'
-import { generateAddTaskHTML } from './createTask.js'
+import { generateHomepageHTML, init as initHomepage, setTheme } from './homepage.js'
+import { getData, initTime, addHandlerTasks } from './model.js'
+import { renderStatsHTML, isDesktopView } from './stats.js'
+import { openTaskView, generateTaskView } from './viewTask.js'
+import { generateAddTaskHTML } from './createTask.js';
+
+import './styles/main.css';
+import './styles/themes.css';
 
 //load the data from localStorage as soon as page loads
-model.getData();
+getData();
 
 function generateMarkup() {
-  homepage.generateHomepageHTML();
+  generateHomepageHTML();
   generateAddTaskHTML();
-  viewTask.generateTaskView();
-  stats.renderStatsHTML();
-  homepage.init();
-  model.initTime();
+  generateTaskView();
+  renderStatsHTML();
+  initHomepage();
+  initTime();
 
   //initialize the listener when the page loads
-  model.addHandlerTasks(viewTask.openTaskView);
+  addHandlerTasks(openTaskView);
   //load theme
-  homepage.setTheme();
+  setTheme();
 
   //check if desktop
-  stats.isDesktopView();
+  isDesktopView();
 }
 
 function init() {

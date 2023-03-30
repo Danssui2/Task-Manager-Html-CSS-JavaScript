@@ -1,5 +1,5 @@
-import icons from '../img/icons.svg';
-import * as homepage from './homepage.js';
+import icons from './assets/icons.svg';
+import { dateContainer } from './homepage.js';
 import { updateStats } from './stats.js'
 import { monthsArr, weekDaysArr } from './helper.js';
 import { openTaskView } from './viewTask.js'
@@ -70,7 +70,7 @@ export function messagePopUp(message, className, time = 1000) {
 export function changeMonth(e) {
   const btn = e.target.closest('button');
   const btnDataset = btn?.dataset.btn;
-  const dateBtn = homepage.dateContainer.querySelector("button");
+  const dateBtn = dateContainer.querySelector("button");
   if (btnDataset === 'next') {
     btn.classList.add('active');
     if (currMonth < 11) currMonth++;
@@ -91,10 +91,10 @@ export function changeMonth(e) {
 
   initTime();
 
-  homepage.dateContainer.querySelector("button").click();
-  homepage.dateContainer.scrollLeft = 0;
+  dateContainer.querySelector("button").click();
+  dateContainer.scrollLeft = 0;
 
-  if (width.matches) homepage.dateContainer.scrollTop = 0;
+  if (width.matches) dateContainer.scrollTop = 0;
 }
 
 export function initTime() {
@@ -148,14 +148,14 @@ export function createMonthDays() {
     });
 
     datesBtn.classList = "dateBtn";
-    homepage.dateContainer.appendChild(datesBtn);
+    dateContainer.appendChild(datesBtn);
 
     if (i === currDay) {
-      homepage.dateContainer.scrollLeft = datesBtn.offsetLeft - homepage.dateContainer.offsetLeft;
+      dateContainer.scrollLeft = datesBtn.offsetLeft - dateContainer.offsetLeft;
       currDayActive(datesBtn);
       // renderTasks();
-     //Scroll to active btn on desktop view
-      if (width.matches) homepage.dateContainer.scrollTop = datesBtn.offsetTop - homepage.dateContainer.offsetTop;
+      //Scroll to active btn on desktop view
+      if (width.matches) dateContainer.scrollTop = datesBtn.offsetTop - dateContainer.offsetTop;
     }
   }
   renderTasks();

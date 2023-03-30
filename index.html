@@ -3,12 +3,17 @@
 
 <head>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="stylesheet" href="src/styles/main.css" />
+  <!-- <link rel="stylesheet" href="src/styles/main.css" /> -->
+  
+  <link rel="apple-touch-icon" href="./public/apple-touch-icon.png" />
+  
+  <link rel="manifest" href="./public/manifest.json" />
+  
 
   <!------Font awesome------>
   <script src="https://kit.fontawesome.com/912f1a9d04.js" crossorigin="anonymous"></script>
 
-  <script src="src/app.js" type="module"></script>
+  <script src="./src/app.js" type="module"></script>
 
   <title>Task Manager</title>
 </head>
@@ -35,7 +40,7 @@
 
   <div class="settings">
     <svg class="icon">
-      <use xlink:href="./img/icons.svg#icon-settings"></use>
+      <use xlink:href="./src/assets/icons.svg#icon-settings"></use>
     </svg>
     <div class="settings_menu">
       <p>Themes</p>
@@ -48,11 +53,11 @@
       </ul>
     </div>
   </div>
-  
-  
+
+
   <script>
     if ('serviceWorker' in navigator) {
-      navigator.serviceWorker.register('../sw.js')
+      navigator.serviceWorker.register('./sw.js')
         .then(registration => {
           console.debug('Service worker registered', registration);
         })
@@ -60,7 +65,6 @@
     } else {
       console.error('Service worker not supported');
     }
-    
   </script>
 </body>
 

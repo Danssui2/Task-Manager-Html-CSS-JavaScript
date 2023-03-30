@@ -1,5 +1,5 @@
 :root {
-  --body-bg: url('../../img/bg.png');
+  --body-bg: url('../assets/bg.png');
   --theme-font: #9B15FF;
   --settings-svg:  #9B15FF;
   --font-color-primary: #000;

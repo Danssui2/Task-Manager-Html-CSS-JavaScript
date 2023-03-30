@@ -1,5 +1,5 @@
 import { statsData } from './model.js';
-import icons from '../img/icons.svg';
+import icons from './assets/icons.svg';
 
 let parentElement = document.querySelector('#stats');
 let statsHolder;
