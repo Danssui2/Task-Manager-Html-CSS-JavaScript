@@ -1,8 +1,8 @@
 {
   "name": "task-manager",
-  "description": "![Thumbnail](src/assets/cover.png) This is a fully functional web based task manager app.",
+  "description": "![Thumbnail](./src/assets/cover.png) This is a fully functional web based task manager app.",
   "private": true,
-  "version": "2.3.0",
+  "version": "2.0.0",
   "type": "module",
   "scripts": {
     "dev": "vite",
@@ -10,6 +10,7 @@
     "preview": "vite preview"
   },
   "devDependencies": {
-    "vite": "^4.2.0"
+    "vite": "^4.2.0",
+    "vite-plugin-pwa": "^0.14.7"
   }
 }

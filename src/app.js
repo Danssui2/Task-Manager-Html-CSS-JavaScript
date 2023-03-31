@@ -30,3 +30,5 @@ function generateMarkup() {
 function init() {
   generateMarkup();
 }
+
+init();
