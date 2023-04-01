@@ -1,19 +1,32 @@
 const CACHE_NAME = 'v1';
 
 self.addEventListener('install', e => {
-
+  let preCache
 
   //activate worker on waiting
   self.skipWaiting();
 
-  const preCache = async () => {
-    try {
-      const cache = await caches.open(CACHE_NAME);
-      return cache.addAll(['/', '../src/app.js', '../src/assets/icons.svg', '../src/assets/bg.png']);
-    } catch (err) {
-      console.error(err);
-    }
-  };
+  //setting up for localhost for development
+  if (location.hostname === 'localhost') {
+    preCache = async () => {
+      try {
+        const cache = await caches.open(CACHE_NAME);
+        return cache.addAll(['/', '../src/app.js', '../src/assets/icons.svg', '../src/assets/bg.png']);
+      } catch (err) {
+        console.error(err);
+      }
+    };
+  } else {
+    preCache = async () => {
+      try {
+        const cache = await caches.open(CACHE_NAME);
+        return cache.addAll(['/', './assets/index.js', './assets/index.css', './assets/icons.svg', './assets/bg.png']);
+      } catch (err) {
+        console.error(err);
+      }
+    };
+  }
+
 
   e.waitUntil(preCache());
 });

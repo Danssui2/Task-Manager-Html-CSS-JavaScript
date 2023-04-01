@@ -20,6 +20,10 @@ html {
   font-size: 62.5%;
 }
 
+.hidden {
+  display: none;
+}
+
 body {
   overflow: hidden;
   background-image: var(--body-bg);
