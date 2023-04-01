@@ -20,10 +20,6 @@ html {
   font-size: 62.5%;
 }
 
-.hidden {
-  display: none;
-}
-
 body {
   overflow: hidden;
   background-image: var(--body-bg);
@@ -35,19 +31,16 @@ body {
   margin: 0;
 }
 
-/* Setting gear */
 .settings {
   position: fixed;
   top: 1%;
   right: 3%;
 }
 
+/* Settings gear */
 .settings>svg {
   width: 2.5rem;
   height: 2.5rem;
-}
-
-.settings>svg {
   fill: var(--settings-svg);
 }
 

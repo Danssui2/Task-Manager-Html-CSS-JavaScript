@@ -1,38 +1,37 @@
-const CACHE_NAME = 'v1';
+const CACHE_NAME = 'v1.1';
+
+const preCache = async () => {
+  try {
+    const cache = await caches.open(CACHE_NAME);
+    return cache.addAll(['/', './assets/index.js', './assets/index.css', './assets/icons.svg', './assets/bg.png']);
+  } catch (err) {
+    console.error(err);
+  }
+};
 
 self.addEventListener('install', e => {
-  let preCache
-
   //activate worker on waiting
   self.skipWaiting();
-
-  //setting up for localhost for development
-  if (location.hostname === 'localhost') {
-    preCache = async () => {
-      try {
-        const cache = await caches.open(CACHE_NAME);
-        return cache.addAll(['/', '../src/app.js', '../src/assets/icons.svg', '../src/assets/bg.png']);
-      } catch (err) {
-        console.error(err);
-      }
-    };
-  } else {
-    preCache = async () => {
-      try {
-        const cache = await caches.open(CACHE_NAME);
-        return cache.addAll(['/', './assets/index.js', './assets/index.css', './assets/icons.svg', './assets/bg.png']);
-      } catch (err) {
-        console.error(err);
-      }
-    };
-  }
-
 
   e.waitUntil(preCache());
 });
 
+const deleteOldCache = function() {
+  //get cache keys
+  caches.keys()
+    .then(cacheNames => {
+      return Promise.all(
+        cacheNames.map(cacheName => {
+          if (cacheName !== CACHE_NAME) return caches.delete(cacheName);
+        })
+      )
+    });
+
+  clients.claim();
+}
+
 self.addEventListener('activate', e => {
-  e.waitUntil(clients.claim());
+  e.waitUntil(deleteOldCache());
 });
 
 const cacheFirst = async (request) => {

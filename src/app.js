@@ -30,7 +30,6 @@ function generateMarkup() {
 function init() {
   generateMarkup();
   
-  document.querySelector('.settings').classList.remove('hidden');
 }
 
 init();
