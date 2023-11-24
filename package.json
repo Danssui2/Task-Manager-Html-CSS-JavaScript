@@ -1,0 +1,15 @@
+{
+  "name": "task-manager",
+  "description": "![Thumbnail](img/cover.png) This is a fully functional web based task manager app.",
+  "private": true,
+  "version": "2.0.0",
+  "type": "module",
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build",
+    "preview": "vite preview"
+  },
+  "devDependencies": {
+    "vite": "^4.2.0"
+  }
+}
